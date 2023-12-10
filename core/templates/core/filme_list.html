@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="d-flex flex-row justify-content-between mt-5">
+
+    <div>
+        <h2>Lista de Filmes</h2>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="{% url 'filme_new' %}">Adicionar Filme</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Título do Filme</th>
+        <th>Gênero</th>
+        <th>Duração</th>
+        <th>Direção</th>
+        <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for filme in object_list %}
+    <tr>
+        <td>{{ filme.titulo }}</td>
+        <td>{{ filme.genero}}</td>
+        <td>{{ filme.duracao}}</td>
+        <td>{{ filme.diretor}}</td>
+        <td>
+            <a href="{% url 'filme_edit' filme.pk %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'filme_delete' filme.pk %}" class="btn btn-danger">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+
