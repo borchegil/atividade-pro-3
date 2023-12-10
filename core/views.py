@@ -14,18 +14,18 @@ class FilmeListView(ListView):
 class FilmeCreateView(CreateView):
     model = Filme
     form_class = FilmeForm
-    template_name = 'filme_form.html'
+    template_name = 'core/filme_form.html'
     success_url = reverse_lazy('filme_list')
 
 
 class FilmeUpdateView(UpdateView):
     model = Filme
     form_class = FilmeForm
-    template_name = 'filme_form.html'
+    template_name = 'core/filme_form.html'
     success_url = reverse_lazy('filme_list')
 
 
 class FilmeDeleteView(DeleteView):
     model = Filme
-    template_name = 'filme_confirm_delete.html'
+    template_name = 'core/filme_confirm_delete.html'
     success_url = reverse_lazy('filme_list')

@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="mt-5">
+
+    <h2>Confirmar Deleção</h2>
+    <p>Você tem certeza que deseja deletar "{{ object }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Deletar</button>
+        <a href="{% url 'filme_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+
+</div>
+{% endblock %}

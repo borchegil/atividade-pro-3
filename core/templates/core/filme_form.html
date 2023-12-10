@@ -1,10 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'core/base.html' %}
 
 {% block content %}
-    <h2>Adicionar/Editar Filme</h2>
+
+<div class="d-flex flex-row justify-content-between mt-5">
+
+    <div>
+        <h2>Adicionar/Editar Filme</h2>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="{% url 'filme_list' %}">Filmes</a>
+    </div>
+</div>
+
+
+<div class="mt-5">
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
+</div>
 {% endblock %}
